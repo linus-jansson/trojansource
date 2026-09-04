@@ -1,6 +1,6 @@
 {
   "name": "@linus_janns/trojansource-linux-x64",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Native Linux x64 binary for trojansource.",
   "repository": {
     "type": "git",

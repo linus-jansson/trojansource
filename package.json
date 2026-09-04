@@ -1,6 +1,6 @@
 {
 	"name": "trojansource",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Scan Git repositories for Unicode characters used in Trojan Source attacks.",
 	"repository": {
 		"type": "git",
