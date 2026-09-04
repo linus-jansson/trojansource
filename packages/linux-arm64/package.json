@@ -1,0 +1,18 @@
+{
+  "name": "@linus_janns/trojansource-linux-arm64",
+  "version": "0.1.0",
+  "description": "Native Linux ARM64 binary for trojansource.",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "os": ["linux"],
+  "cpu": ["arm64"],
+  "files": ["bin"],
+  "bin": {
+    "trojansource": "./bin/trojansource"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/build-npm-binaries.mjs"
+  }
+}

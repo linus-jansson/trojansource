@@ -1,0 +1,40 @@
+{
+	"name": "trojansource",
+	"version": "0.1.0",
+	"description": "Scan Git repositories for Unicode characters used in Trojan Source attacks.",
+	"bin": {
+		"trojansource": "./bin/trojansource.mjs"
+	},
+	"files": [
+		"bin",
+		"README.md",
+		"LICENSE"
+	],
+	"scripts": {
+		"build:npm-binaries": "node scripts/build-npm-binaries.mjs",
+		"prepack": "node scripts/build-npm-binaries.mjs",
+		"test": "go test ./..."
+	},
+	"keywords": [
+		"trojan-source",
+		"unicode",
+		"security",
+		"bidi",
+		"scanner",
+		"git"
+	],
+	"author": "Linus J",
+	"license": "MIT",
+	"engines": {
+		"node": ">=18"
+	},
+	"optionalDependencies": {
+		"@linus_janns/trojansource-darwin-arm64": "workspace:*",
+		"@linus_janns/trojansource-darwin-x64": "workspace:*",
+		"@linus_janns/trojansource-linux-arm64": "workspace:*",
+		"@linus_janns/trojansource-linux-x64": "workspace:*",
+		"@linus_janns/trojansource-win32-arm64": "workspace:*",
+		"@linus_janns/trojansource-win32-x64": "workspace:*"
+	},
+	"packageManager": "pnpm@10.33.0"
+}

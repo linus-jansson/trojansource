@@ -1,0 +1,18 @@
+{
+  "name": "@linus_janns/trojansource-darwin-arm64",
+  "version": "0.1.0",
+  "description": "Native macOS ARM64 binary for trojansource.",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "os": ["darwin"],
+  "cpu": ["arm64"],
+  "files": ["bin"],
+  "bin": {
+    "trojansource": "./bin/trojansource"
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/build-npm-binaries.mjs"
+  }
+}

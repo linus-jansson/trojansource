@@ -1,0 +1,40 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    optionalDependencies:
+      '@linus_janns/trojansource-darwin-arm64':
+        specifier: workspace:*
+        version: link:packages/darwin-arm64
+      '@linus_janns/trojansource-darwin-x64':
+        specifier: workspace:*
+        version: link:packages/darwin-x64
+      '@linus_janns/trojansource-linux-arm64':
+        specifier: workspace:*
+        version: link:packages/linux-arm64
+      '@linus_janns/trojansource-linux-x64':
+        specifier: workspace:*
+        version: link:packages/linux-x64
+      '@linus_janns/trojansource-win32-arm64':
+        specifier: workspace:*
+        version: link:packages/win32-arm64
+      '@linus_janns/trojansource-win32-x64':
+        specifier: workspace:*
+        version: link:packages/win32-x64
+
+  packages/darwin-arm64: {}
+
+  packages/darwin-x64: {}
+
+  packages/linux-arm64: {}
+
+  packages/linux-x64: {}
+
+  packages/win32-arm64: {}
+
+  packages/win32-x64: {}
