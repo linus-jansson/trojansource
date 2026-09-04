@@ -21,6 +21,7 @@
 	"scripts": {
 		"build:npm-binaries": "node scripts/build-npm-binaries.mjs",
 		"changeset": "changeset",
+		"publish:npm": "scripts/publish-npm.sh",
 		"prepack": "node scripts/build-npm-binaries.mjs",
 		"test": "go test ./...",
 		"version-packages": "changeset version"

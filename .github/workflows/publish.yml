@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: npm install --global pnpm@10.33.0
+      - run: npm install --global npm@11.15.0 pnpm@10.33.0
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm test
       - run: pnpm run build:npm-binaries
@@ -34,11 +34,11 @@ jobs:
       - name: Publish platform packages
         run: |
           for package in "$RUNNER_TEMP"/trojansource-packages/*.tgz; do
-            npm publish "$package" --access public
+            npm stage publish "$package" --access public
           done
       - name: Pack launcher package
         run: |
           mkdir -p "$RUNNER_TEMP/trojansource-launcher"
           pnpm pack --pack-destination "$RUNNER_TEMP/trojansource-launcher"
       - name: Publish launcher package
-        run: npm publish "$RUNNER_TEMP/trojansource-launcher"/*.tgz
+        run: npm stage publish "$RUNNER_TEMP/trojansource-launcher"/*.tgz
