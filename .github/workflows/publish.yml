@@ -7,13 +7,12 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     environment: npm
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
@@ -22,7 +21,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
       - run: npm install --global pnpm@10.33.0
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm test
@@ -30,7 +28,7 @@ jobs:
       - name: Publish platform packages
         run: |
           for package in packages/*; do
-            pnpm --dir "$package" publish --access public --no-git-checks
+            pnpm --dir "$package" publish --access public --no-git-checks --provenance
           done
       - name: Publish launcher package
-        run: pnpm publish --no-git-checks
+        run: pnpm publish --no-git-checks --provenance

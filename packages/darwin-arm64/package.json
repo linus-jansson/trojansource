@@ -2,6 +2,10 @@
   "name": "@linus_janns/trojansource-darwin-arm64",
   "version": "0.1.0",
   "description": "Native macOS ARM64 binary for trojansource.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linus-jansson/trojansource.git"
+  },
   "license": "ISC",
   "publishConfig": {
     "access": "public"

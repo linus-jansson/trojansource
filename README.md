@@ -75,5 +75,6 @@ npm installs only the matching native binary. For the scoped platform packages, 
 
 GitHub Actions runs this validation on pushes and pull requests. Publishing is triggered when a
 GitHub release is published or manually from the **Publish npm packages** workflow. Configure the
-repository's `NPM_TOKEN` Actions secret with an npm automation token that can publish under
-`@linus_janns`.
+`trojansource` package and every `@linus_janns/trojansource-*` platform package in npm to trust
+this GitHub repository and the `.github/workflows/publish.yml` workflow. The workflow uses
+GitHub's OIDC identity and `--provenance`; it does not require an `NPM_TOKEN` secret.
