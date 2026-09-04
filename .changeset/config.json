@@ -1,0 +1,25 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.0.2/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [
+    [
+      "trojansource",
+      "@linus_janns/trojansource-darwin-arm64",
+      "@linus_janns/trojansource-darwin-x64",
+      "@linus_janns/trojansource-linux-arm64",
+      "@linus_janns/trojansource-linux-x64",
+      "@linus_janns/trojansource-win32-arm64",
+      "@linus_janns/trojansource-win32-x64"
+    ]
+  ],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": [],
+  "privatePackages": {
+    "version": true,
+    "tag": true
+  }
+}

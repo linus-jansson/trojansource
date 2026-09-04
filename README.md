@@ -61,17 +61,26 @@ accepts an `Options` value with `CWD`, `Mode`, and `AllowlistPath` fields.
 
 ## Publishing npm binaries
 
+### Versioning
+
+The root package and all six platform packages are a fixed
+[Changesets](https://github.com/changesets/changesets) release group: they always receive the same
+version. Add a changeset with `pnpm changeset` for every publishable change. Before creating a
+GitHub release, run `pnpm version-packages` and commit the generated version updates and changelog.
+
+### Publishing
+
 Build the platform packages before publishing:
 
 ```sh
 pnpm run build:npm-binaries
 ```
 
-Publish all six `packages/*` packages first, then publish the root `trojansource` package with
-pnpm. pnpm replaces its `workspace:*` optional-dependency references with version `0.1.0` in the
-published manifest. The root package declares the platform packages as optional dependencies, so
-npm installs only the matching native binary. For the scoped platform packages, use
-`pnpm publish --access public`.
+Publish all six `packages/*` packages first, then publish the root `trojansource` package. The
+release workflow creates workspace-aware tarballs with pnpm, which replaces `workspace:*`
+optional-dependency references with version `0.1.0`, then publishes the tarballs with npm. The
+root package declares the platform packages as optional dependencies, so npm installs only the
+matching native binary.
 
 GitHub Actions runs this validation on pushes and pull requests. Publishing is triggered when a
 GitHub release is published or manually from the **Publish npm packages** workflow. Configure the

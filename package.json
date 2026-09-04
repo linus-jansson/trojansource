@@ -20,8 +20,10 @@
 	],
 	"scripts": {
 		"build:npm-binaries": "node scripts/build-npm-binaries.mjs",
+		"changeset": "changeset",
 		"prepack": "node scripts/build-npm-binaries.mjs",
-		"test": "go test ./..."
+		"test": "go test ./...",
+		"version-packages": "changeset version"
 	},
 	"keywords": [
 		"trojan-source",
@@ -44,5 +46,8 @@
 		"@linus_janns/trojansource-win32-arm64": "workspace:*",
 		"@linus_janns/trojansource-win32-x64": "workspace:*"
 	},
-	"packageManager": "pnpm@10.33.0"
+	"packageManager": "pnpm@10.33.0",
+	"devDependencies": {
+		"@changesets/cli": "^3.0.2"
+	}
 }

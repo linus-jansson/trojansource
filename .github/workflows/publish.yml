@@ -25,10 +25,20 @@ jobs:
       - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm test
       - run: pnpm run build:npm-binaries
+      - name: Pack platform packages
+        run: |
+          mkdir -p "$RUNNER_TEMP/trojansource-packages"
+          for package in packages/*; do
+            pnpm --dir "$package" pack --pack-destination "$RUNNER_TEMP/trojansource-packages"
+          done
       - name: Publish platform packages
         run: |
-          for package in packages/*; do
-            pnpm --dir "$package" publish --access public --no-git-checks --provenance
+          for package in "$RUNNER_TEMP"/trojansource-packages/*.tgz; do
+            npm publish "$package" --access public --provenance
           done
+      - name: Pack launcher package
+        run: |
+          mkdir -p "$RUNNER_TEMP/trojansource-launcher"
+          pnpm pack --pack-destination "$RUNNER_TEMP/trojansource-launcher"
       - name: Publish launcher package
-        run: pnpm publish --no-git-checks --provenance
+        run: npm publish "$RUNNER_TEMP/trojansource-launcher"/*.tgz --provenance
