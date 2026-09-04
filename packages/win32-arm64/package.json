@@ -4,7 +4,7 @@
   "description": "Native Windows ARM64 binary for trojansource.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linus-jansson/trojansource.git"
+    "url": "https://github.com/linus-jansson/trojansource"
   },
   "license": "ISC",
   "publishConfig": {

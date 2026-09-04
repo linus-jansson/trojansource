@@ -34,11 +34,11 @@ jobs:
       - name: Publish platform packages
         run: |
           for package in "$RUNNER_TEMP"/trojansource-packages/*.tgz; do
-            npm publish "$package" --access public --provenance
+            npm publish "$package" --access public
           done
       - name: Pack launcher package
         run: |
           mkdir -p "$RUNNER_TEMP/trojansource-launcher"
           pnpm pack --pack-destination "$RUNNER_TEMP/trojansource-launcher"
       - name: Publish launcher package
-        run: npm publish "$RUNNER_TEMP/trojansource-launcher"/*.tgz --provenance
+        run: npm publish "$RUNNER_TEMP/trojansource-launcher"/*.tgz

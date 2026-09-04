@@ -85,5 +85,7 @@ matching native binary.
 GitHub Actions runs this validation on pushes and pull requests. Publishing is triggered when a
 GitHub release is published or manually from the **Publish npm packages** workflow. Configure the
 `trojansource` package and every `@linus_janns/trojansource-*` platform package in npm to trust
-this GitHub repository and the `.github/workflows/publish.yml` workflow. The workflow uses
-GitHub's OIDC identity and `--provenance`; it does not require an `NPM_TOKEN` secret.
+the GitHub Actions publisher with these exact, case-sensitive values: owner
+`linus-jansson`, repository `trojansource`, workflow filename `publish.yml`, and environment
+`npm`. The workflow uses GitHub's OIDC identity; npm creates the provenance automatically, and no
+`NPM_TOKEN` secret is required.
